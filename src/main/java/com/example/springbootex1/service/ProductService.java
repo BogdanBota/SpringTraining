@@ -12,9 +12,7 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    @Autowired
     ProductRepository productRepository;
-    @Autowired
     SectionRepository sectionRepository;
 
     @Autowired
