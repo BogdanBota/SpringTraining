@@ -13,24 +13,10 @@ import java.util.List;
 public class ProductService {
 
     ProductRepository productRepository;
-    SectionRepository sectionRepository;
 
     @Autowired
     public ProductService(final ProductRepository productRepository) {
         this.productRepository = productRepository;
-    }
-
-    public void addProductToSection(final int id,final int sectionId) {
-
-
-        Section section = sectionRepository.findById(sectionId).orElseThrow(() -> new IllegalArgumentException(" "));
-
-        Product product = productRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(" "));
-
-        product.setSection(section);
-
-        productRepository.save(product);
-
     }
 
     public void create( final Product product) {

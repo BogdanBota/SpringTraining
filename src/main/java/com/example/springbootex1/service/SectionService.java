@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class SectionService {
 
     SectionRepository sectionRepository;
-    StoreRepository storeRepository;
 
     @Autowired
     public SectionService(final SectionRepository sectionRepository) {
@@ -48,14 +47,6 @@ public class SectionService {
         final Section existingSection = get(id);
         existingSection.setName(name);
         sectionRepository.save(existingSection);
-    }
-
-    public void addSectionToStore( final  int id,final int storeId) {
-
-        Store store = storeRepository.findById(storeId).orElseThrow(() -> new IllegalArgumentException(" "));
-        Section section = sectionRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(" "));
-        section.setStore(store);
-        sectionRepository.save(section);
     }
 
 

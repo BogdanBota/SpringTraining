@@ -52,13 +52,6 @@ public class ProductController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @PutMapping("/addProductToSection")
-    @Secured({"admin" , "manager"})
-    public ResponseEntity<?> addProductToSection(@RequestParam("id") int id, @RequestParam("section_id") int sectionId) {
-        productService.addProductToSection(id, sectionId);
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
-
     @DeleteMapping("/delete")
     @Secured({"admin" , "manager"})
     public ResponseEntity<?> delete(@RequestParam("productId") int productId) {

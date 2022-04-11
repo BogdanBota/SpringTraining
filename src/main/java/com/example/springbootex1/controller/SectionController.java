@@ -29,7 +29,7 @@ public class SectionController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/getSection")
     @Secured({"admin" , "manager"})
     public Section getSection(@RequestParam("sectionId") int sectionId) {
         return sectionService.getSection(sectionId);
@@ -42,16 +42,7 @@ public class SectionController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @PutMapping("/addSectionToStore")
-    @Secured({"admin" , "manager"})
-    public ResponseEntity<?> addProductToSection(@RequestParam("id")  int id, @RequestParam("section_id")  int storeId) {
-        sectionService.addSectionToStore(id, storeId);
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
-
-
-
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/delete")
     @Secured({"admin" , "manager"})
     public ResponseEntity<?> delete(@RequestParam("sectionId") int id) {
         sectionService.delete(id);
