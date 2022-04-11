@@ -20,8 +20,6 @@ import java.util.stream.StreamSupport;
 public class ProductController {
 
     ProductService productService;
-    @Autowired
-    ProductRepository productRepository;
 
     @Autowired
     public ProductController( ProductService productService) {
@@ -37,7 +35,7 @@ public class ProductController {
 
     @GetMapping("/getAllProducts")
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productService.getAll();
     }
 
 
